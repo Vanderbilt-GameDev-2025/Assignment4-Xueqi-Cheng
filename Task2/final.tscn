@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cduxm8rp722i4"]
+
+[ext_resource type="Shader" path="res://final.gdshader" id="1_jkapo"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rsh1l"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2820j"]
+noise = SubResource("FastNoiseLite_rsh1l")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0mx1d"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_smbf0"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_0mx1d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5sk8g"]
+render_priority = 0
+shader = ExtResource("1_jkapo")
+shader_parameter/height_scale = 0.5
+shader_parameter/noise = SubResource("NoiseTexture2D_2820j")
+shader_parameter/normalmap = SubResource("NoiseTexture2D_smbf0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_358ia"]
+material = SubResource("ShaderMaterial_5sk8g")
+subdivide_width = 32
+subdivide_depth = 32
+
+[node name="shader" type="MeshInstance3D"]
+transform = Transform3D(0.606137, 0.0346821, 0.794604, -0.0357221, 0.999228, -0.0163639, -0.794558, -0.0184662, 0.606908, -0.0796397, -0.164383, 0.171863)
+mesh = SubResource("PlaneMesh_358ia")
+metadata/first = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, -4.74975e-08, 1.19209e-07, -9.31323e-10, 1, 1.86265e-08, -2.98023e-08, -1.02445e-08, 1, 0.0561163, 1.86103, -0.517864)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 179.0

@@ -11,3 +11,8 @@ The code is in the "First_shader", "Second_shader" and "compute_shader" folders.
 ![Compute Shader](compute.png)
 
 ## Task 2
+Wave deformation (vertex) + water reflection (fragment). Code is shown in Task2 folder. The result is shown below:
+![Final Shader](final.png)
+
+## Task 1.3
+Code is shown in Task3 folder.
